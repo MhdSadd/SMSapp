@@ -1,0 +1,63 @@
+<%- include("../partials/admin/side-nav") %> <%-
+include("../partials/admin/header") %>
+
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">
+              Queued Messages ( <%= queued_message_count %> )
+            </h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class="text-primary">
+                  <th>Date Created</th>
+                  <th>Date(s) To Send</th>
+                  <th>Subject</th>
+                  <th>Message</th>
+                  <th>Actions</th>
+                </thead>
+                <tbody>
+                  <%queued_messages.forEach( message=> { %> 
+                    <% let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' } %>
+                  <tr>
+                    <td><%= (message.createdAt).toLocaleDateString("en-US", options) %></td>
+                    <td><%=message.send_time%>  </td>
+                    <td><%= message.subject %></td>
+                    <td><%= message.message_body %></td>
+                    <td data-title="Action" class="d-flex">
+                      <a href="/admin/cancel-queue/<%= message._id %> "
+                        ><button class="btn btn-danger btn-sm" title="Cancel Message">
+                          <i class="material-icons">cancel</i>
+                        </button>
+                      </a>
+
+                      <a href="/admin/<%= message._id %> "
+                        ><button class="btn btn-success btn-sm" title="Send Now">
+                          <i class="material-icons">check</i>
+                        </button>
+                      </a>
+
+                      <a href="/admin/delete/<%= message._id %> "
+                        ><button class="btn btn-danger btn-sm" title="Delete Message">
+                          <i class="material-icons">delete_forever</i>
+                        </button>
+                      </a>
+                    </td>
+                  </tr>
+                  <% }) %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include("../partials/admin/footer") %>

@@ -1,0 +1,60 @@
+<%- include("../partials/admin/side-nav") %> 
+<%- include("../partials/admin/header") %> 
+
+
+
+
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title ">Users ( <%=  user_count  %> ) </h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table">
+                <thead class=" text-primary">
+                  <th>
+                    Name
+                  </th>
+                  <th>
+                    Phone
+                  </th>
+                  <th>
+                    Address
+                  </th>
+                </thead>
+                <tbody>
+                  <%users.forEach(user => { %>
+                    <tr>
+                      <td>
+                        <%= user.user_name %> 
+                      </td>
+                      <td>
+                        <%= user.phone_number %> 
+                      </td>
+                      <td>
+                        <%= user.house_address %>
+                      </td>
+                    </tr>
+                  <% }) %> 
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<%- include("../partials/admin/footer") %> 

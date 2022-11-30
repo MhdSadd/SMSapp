@@ -1,0 +1,101 @@
+<%- include("../partials/admin/side-nav") %>
+  <%- include("../partials/admin/header") %>
+
+
+    <style>
+      form {
+        background-color: #fff;
+        padding: 2rem 4rem;
+        border-radius: .3rem;
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, .2), -2px 2px 2px rgba(0, 0, 0, .2);
+      }
+
+      .style {
+        border: 1px solid gray;
+        border-radius: .3rem;
+      }
+
+      sup {
+        color: red;
+        font-size: .9em;
+      }
+
+      button {
+        font-weight: bold;
+        font-size: 5rem;
+      }
+
+      .def {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+      }
+    </style>
+
+
+
+
+
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-2">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <%- include ("../partials/messages"); %>
+                <form action="/admin/message" method="POST">
+                  <!-- <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label class="bmd-label-floating">Subject<sup>*</sup></label>
+                        <input type="text" name="subject" class="form-control" title="input message subject" required>
+                      </div>
+                    </div>
+                  </div> -->
+                  <div class="row ml-1">
+                    <div class="form-group">
+                      <label class="bmd-label-floating">Sender ID<sup>*</sup></label><br>
+                        <input type="text" name="sender_id">
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group">
+                        <label>Message<sup>*</sup></label>
+                        <div class="form-group">
+                          <textarea name="message" class="form-control style" rows="6" required></textarea>
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label>Receivers<sup>*</sup></label>
+                        <div class="form-group">
+                          <textarea name="phones" class="form-control style" rows="8"
+                            placeholder="Enter comma seperated receivers phone number" required></textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="def">
+                      <button type="submit" formaction="/admin/message" class="btn btn-primary pull-right">Send
+                        Now</button>
+                    </div>
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+          </div>
+          <div class="col-md-2"></div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+    <%- include("../partials/admin/footer") %>
