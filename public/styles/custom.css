@@ -8,11 +8,12 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  max-width: 100%;
 }
 
 a {
   text-decoration: none;
-  color: white;
+  color: #58B34D;
   font-size: 1.2rem;
   font-weight: bolder;
   font-family: "Work Sans", sans-serif;
@@ -51,23 +52,22 @@ li {
   font-family: "Stint Ultra Condensed", cursive;
 }
 
-.conatiner {
-  /* background-image: url("../images/pictda.png"); */
+.fa-bell{
+  color: #58B34D;
+}
+
+/* .conatiner {
+  background-image: url("../images/pictda.png");
   background-size: cover;
   background-position: center;
   height: 80vh;
-}
+} */
 
 .center {
   height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.underline {
-  border-bottom: 3px solid black;
-  width: 20%;
 }
 
 .schedule-text p {
